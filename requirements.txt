@@ -2,9 +2,10 @@ pandas
 numpy
 seaborn 
 matplotlib
-skicit-learn
+scikit-learn
 catboost
-cgboost
+xgboost
 Flask
+dill
 #-e .
 #automatically triggers setup.py
