@@ -23,7 +23,7 @@ from src.logger import logging
 # For inputs to data transformation component
 @dataclass
 class DataTransformationConfig:
-    preproccessor_obj_file_path = os.path.join('artifacts', "preprocessor.pkl")  # pickle file/model file
+    preprocessor_obj_file_path = os.path.join('artifacts', "preprocessor.pkl")  # pickle file/model file
 
 class DataTransformation:
     def __init__(self):
@@ -113,15 +113,21 @@ class DataTransformation:
             logging.info("Saved preprocessing object")
 
             save_object(
-                file_path=self.data_transformation_config.preproccessor_obj_file_path,
+                file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
             )
 
             return(
                 train_arr,
                 test_arr,
-                self.data_transformation_config.preproccessor_obj_file_path,
+                self.data_transformation_config.preprocessor_obj_file_path,
             )
         
         except Exception as e:
             raise CustomException(e, sys)
+
+
+'''
+adding with_mean=False resolved my error is that the StandardScaler is subtracting the mean from each feature, which can result in some features having negative values.However, StandardScaler() alone assumes that the features have positive values, which can cause issues when working with features that have negative values.
+By setting with_mean=False, the StandardScaler does not subtract the mean from each feature, and instead scales the features based on their variance. This can help preserve the positive values of the features and avoid issues.
+'''

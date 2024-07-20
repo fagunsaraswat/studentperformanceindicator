@@ -12,6 +12,10 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass #used for creating class variables
 
 
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
+
+
 # there might be some inputs required by data ingestion component like where we have to save raw data, training data, test data, etc. All the kinds of inputs will be created in another class.
 @dataclass
 class DataIngestionConfig:
@@ -71,9 +75,10 @@ if __name__=="__main__":
     train_data,test_data = obj.initiate_data_ingestion()
 
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,_= data_transformation.initiate_data_transformation(train_data,test_data)
 
-
+    modelTrainer = ModelTrainer()
+    print(modelTrainer.initiate_model_trainer(train_arr,test_arr))
 
 
 
