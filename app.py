@@ -35,5 +35,6 @@ def predict_datapoint():
     
 if __name__ == "__main__":
     # Get the port from the environment variable and bind to 0.0.0.0
-    port = int(os.getenv("PORT", 10000)) 
-    app.run(host='0.0.0.0', port=port)
+    port = int(os.getenv("PORT", 10000))
+    debug = os.getenv("FLASK_ENV") == "development"
+    app.run(host='0.0.0.0', port=port, debug=debug)
