@@ -34,5 +34,6 @@ def predict_datapoint():
         return render_template('home.html', results=results[0])
     
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 5000))
+    # Get the port from the environment variable and bind to 0.0.0.0
+    port = int(os.getenv("PORT", 10000)) 
     app.run(host='0.0.0.0', port=port)
