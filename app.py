@@ -33,6 +33,6 @@ def predict_datapoint():
         results = predict_pipeline.predict(pred_df)
         return render_template('home.html', results=results[0])
     
-# if __name__ == "__main__":
-#     app.run(host='0.0.0.0')
-         
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
