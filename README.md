@@ -6,19 +6,19 @@ The Student Exam Performance Predictor is a web application designed to predict 
 
 ### Followed the life cycle of Machine learning Project through Modular Coding:
 
-Understanding the Problem Statement
-Data Collection
-Data Checks to perform
+1. Understanding the Problem Statement
+2. Data Collection
+3. Data Checks to perform
 - Check Missing values
 - Check Duplicates
 - Check data type
 - Check the number of unique values in each column
 - Check the statistics of the data set
-Check various categories present in the different categorical column
-Exploratory data analysis
-Data Pre-Processing
-Model Training
-Choose the best model
+4. Check various categories present in the different categorical column
+5. Exploratory data analysis
+6. Data Pre-Processing
+7. Model Training
+8. Choose the best model
 
 ### Tech Stack:
 
